@@ -9,17 +9,23 @@
     tools:context=".DetailActivity"
     tools:showIn="@layout/activity_detail"
    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ad">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:shownIn="@layout/activity_detail">
 
-        <LinearLayout
+       <!-- pahele liner laout scroll-->
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            >
 
-            <TextView
+           <!-- <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/movietitle"
@@ -28,7 +34,7 @@
                 android:textAlignment="center"
                 android:layout_marginTop="10dp"
                 android:textStyle="bold"
-                android:textSize="25sp"/>
+                android:textSize="25sp"/>-->
 
             <TextView
                 android:layout_width="match_parent"
@@ -39,31 +45,14 @@
                 android:layout_marginTop="@dimen/layout_margin_top"
                 android:textSize="20sp"
                 android:padding="@dimen/padding_layout"
-                android:layout_below="@+id/movietitle"/>
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="16dp"
+                tools:layout_constraintTop_creator="1"
+                tools:layout_constraintLeft_creator="1"
+                />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/plot"
-                android:layout_marginLeft="@dimen/layout_margin_left"
-                android:text="@string/plot"
-                android:textAlignment="center"
-                android:layout_marginTop="@dimen/layout_margin_top2"
-                android:textStyle="bold"
-                android:textSize="25sp"
-                android:layout_below="@+id/title"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/plotsynopis"
-                android:layout_marginLeft="@dimen/layout_margin_left"
-                android:textAlignment="center"
-                android:layout_marginTop="@dimen/layout_margin_top"
-                android:textSize="20sp"
-                android:layout_below="@+id/plot"/>
-
-            <TextView
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/rating"
@@ -73,8 +62,7 @@
                 android:layout_marginTop="@dimen/layout_margin_top2"
                 android:textStyle="bold"
                 android:textSize="25sp"
-                android:layout_below="@+id/plotsynopis"/>
-
+                android:layout_below="@+id/plotsynopis"/>-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -84,21 +72,20 @@
                 android:layout_marginTop="@dimen/layout_margin_top"
                 android:textSize="20sp"
                 android:padding="@dimen/padding_layout"
-                android:layout_below="@+id/rating"/>
-
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/release"
-                android:layout_marginLeft="@dimen/layout_margin_left"
-                android:text="@string/release"
-                android:textAlignment="center"
-                android:layout_marginTop="@dimen/layout_margin_top2"
-                android:textStyle="bold"
-                android:textSize="25sp"
-                android:layout_below="@+id/userrating"/>
+                app:layout_constraintLeft_toLeftOf="parent"
+                tools:layout_constraintTop_creator="1"
+                />
+            <!--  <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:id="@+id/release"
+             android:layout_marginLeft="@dimen/layout_margin_left"
+             android:text="@string/release"
+             android:textAlignment="center"
+             android:layout_marginTop="@dimen/layout_margin_top2"
+             android:textStyle="bold"
+             android:textSize="25sp"
+             android:layout_below="@+id/userrating"/>-->
 
             <TextView
                 android:layout_width="match_parent"
@@ -108,9 +95,59 @@
                 android:textAlignment="center"
                 android:layout_marginTop="@dimen/layout_margin_top"
                 android:textSize="20sp"
-                android:layout_below="@+id/release"/>
-        </LinearLayout>
+                app:layout_constraintTop_toBottomOf="@+id/userratingt"
+                app:layout_constraintLeft_toLeftOf="parent"
+
+                />
+            <!--            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/plot"
+                android:layout_marginLeft="@dimen/layout_margin_left"
+                android:text="@string/plot"
+                android:textAlignment="center"
+                android:layout_marginTop="@dimen/layout_margin_top2"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:layout_below="@+id/title"/>-->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/plotsynopis"
+                android:layout_marginLeft="@dimen/layout_margin_left"
+                android:textAlignment="center"
+                android:layout_marginTop="@dimen/layout_margin_top"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@+id/releasedate"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/thumbnail_url"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/trailer"
+                android:textSize="30sp"
+                android:text="@string/trailer"
+                app:layout_constraintTop_toBottomOf="@+id/plotsynopis"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recycler_view1"
+                android:clipToPadding="false"
+                android:scrollbars="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/trailer"
+                app:layout_constraintLeft_toLeftOf="parent">
+
+            </android.support.v7.widget.RecyclerView>
+        </android.support.constraint.ConstraintLayout>
 
     </ScrollView>
-
+    </LinearLayout>
 </RelativeLayout>

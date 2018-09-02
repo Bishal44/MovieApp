@@ -42,7 +42,7 @@ public class DetailActivity extends AppCompatActivity{
             String thumnail=getIntent().getExtras().getString("poster_path");
             String movieName=getIntent().getExtras().getString("originalTitle");
             String synopsis=getIntent().getExtras().getString("overview");
-            String rating=getIntent().getExtras().getString("vote_average");
+            String rating= String.valueOf(getIntent().getExtras().getDouble("vote_average"));
             String dateofRelease=getIntent().getExtras().getString("releaseDate");
 
             Glide.with(this)
